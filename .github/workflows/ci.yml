@@ -46,7 +46,8 @@ jobs:
       - name: Install Qt and build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake ninja-build g++ python3 qt6-base-dev
+          # Qt6Gui requires OpenGL development headers even for the offscreen test.
+          sudo apt-get install -y cmake ninja-build g++ python3 qt6-base-dev libgl1-mesa-dev libglu1-mesa-dev
       - name: Configure GUI
         run: cmake -S . -B build-ci-gui -G Ninja -DCMAKE_BUILD_TYPE=Debug -DMOTIONCORE_BUILD_GUI=ON
       - name: Build GUI
