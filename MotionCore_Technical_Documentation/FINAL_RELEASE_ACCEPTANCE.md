@@ -45,11 +45,11 @@
 
 ## Git/GitHub 发布状态
 
-本地已加入 MIT `LICENSE`，创建了真实初始提交 `3c3a4d5` 和本地标签 `v1.0.0`。根据仓库所有者已确认的“MotionCore、公开、MIT”设置，已创建公开仓库：<https://github.com/conan-wx/MotionCore>。
+本地已加入 MIT `LICENSE`，创建了真实提交 `3c3a4d5`（源码发布）和 `9dbe74a`（发布状态文档），并创建标签 `v1.0.0`。根据仓库所有者已确认的“MotionCore、公开、MIT”设置，公开仓库为 <https://github.com/conan-wx/MotionCore>。
 
-首次推送被 GitHub 拒绝，原因是当前 CLI OAuth 凭据缺少 `workflow` scope，GitHub 不允许该凭据上传 `.github/workflows/ci.yml`；因此远程仓库当前仍为空，不能宣称源码、标签或 Actions 已上传。需要在 <https://github.com/login/device> 完成 GitHub CLI 提示的一次性设备授权后，再执行 `git push origin main --tags` 和 `gh release create v1.0.0 MotionCore_v1.0.0_Source.zip ...`。本地完整仓库、提交、标签、CI 文件和发布包均已保留。
+GitHub CLI 的设备授权完成后，源码、标签和 CI 配置均已成功推送。补充 OpenGL 开发依赖后，GitHub Actions run [38207397936](https://github.com/conan-wx/MotionCore/actions/runs/38207397936) 的 Ubuntu Debug、Release、Qt offscreen 和 ASan/UBSan 四个 job 全部成功。GitHub Release [v1.0.0](https://github.com/conan-wx/MotionCore/releases/tag/v1.0.0) 已发布，并附带 `MotionCore_v1.0.0_Source.zip`（SHA-256：`11f7e4649176cdbf90f0ea4d02676c45182d80cd8ea76317f0f0d49122cac72f`）。
 
-发布状态：源码与本地验收完成；公开仓库已创建但尚未成功推送；GitHub Actions、Release 和人工 GUI 操作仍待设备授权/用户显示环境验收。
+发布状态：源码、标签、Release 和 CI 已独立验证；人工 GUI 操作仍待用户在有显示环境的 Windows + WSLg 或原生 Qt 环境中验收。
 
 
 
