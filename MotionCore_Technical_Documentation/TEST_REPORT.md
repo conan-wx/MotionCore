@@ -2,7 +2,7 @@
 
 ## 环境
 
-Windows 主机中的 WSL Ubuntu，GNU C++ 13.3、CMake 3.28、CTest、Qt 6.4.2。Qt GUI 使用 MOTIONCORE_BUILD_GUI=ON，核心构建不依赖 Qt。在线 GitHub Actions 尚未运行。
+Windows 主机中的 WSL Ubuntu，GNU C++ 13.3、CMake 3.28、CTest、Qt 6.4.2。Qt GUI 使用 MOTIONCORE_BUILD_GUI=ON，核心构建不依赖 Qt。GitHub Actions run [38207397936](https://github.com/conan-wx/MotionCore/actions/runs/38207397936) 已完成远程复核。
 
 ## 实际自动化结果
 
@@ -40,7 +40,7 @@ python3 scripts/plot_phase5.py results/phase5/nominal.csv --output-dir results/p
 
 ## 未覆盖项
 
-没有真实硬件、Windows 硬实时、安全 PLC/STO 或工业认证测试；Qt 图形界面尚未在带显示环境的机器上人工操作验收；GitHub Actions 仅有配置文件，尚未在线执行；没有生成代码覆盖率百分比。
+没有真实硬件、Windows 硬实时、安全 PLC/STO 或工业认证测试；Qt 图形界面尚未在带显示环境的机器上人工操作验收；没有生成代码覆盖率百分比。
 
 
 

@@ -45,7 +45,7 @@
 
 ## Git/GitHub 发布状态
 
-本地已加入 MIT `LICENSE`，创建了真实提交 `3c3a4d5`（源码发布）、`0e73bfb`（CI 依赖修复）和 `f4f8adf`（最终发布文档），并创建标签 `v1.0.0`。根据仓库所有者已确认的“MotionCore、公开、MIT”设置，公开仓库为 <https://github.com/conan-wx/MotionCore>。
+本地已加入 MIT `LICENSE`，创建了真实提交 `3c3a4d5`（源码发布）、`0e73bfb`（CI 依赖修复）和 `ed60ee4`（最终发布文档），并创建标签 `v1.0.0`。根据仓库所有者已确认的“MotionCore、公开、MIT”设置，公开仓库为 <https://github.com/conan-wx/MotionCore>。
 
 GitHub CLI 的设备授权完成后，源码、标签和 CI 配置均已成功推送。补充 OpenGL 开发依赖后，GitHub Actions run [38207397936](https://github.com/conan-wx/MotionCore/actions/runs/38207397936) 的 Ubuntu Debug、Release、Qt offscreen 和 ASan/UBSan 四个 job 全部成功。GitHub Release [v1.0.0](https://github.com/conan-wx/MotionCore/releases/tag/v1.0.0) 已发布，并附带 `MotionCore_v1.0.0_Source.zip`；可在下载后用 `Get-FileHash MotionCore_v1.0.0_Source.zip -Algorithm SHA256` 或 `sha256sum` 独立校验。
 
