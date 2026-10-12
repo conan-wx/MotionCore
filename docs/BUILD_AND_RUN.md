@@ -6,7 +6,7 @@
 
 ```bash
 sudo apt update
-sudo apt install -y build-essential cmake ninja-build git python3 qt6-base-dev
+sudo apt install -y build-essential cmake ninja-build git python3 qt6-base-dev libgl1-mesa-dev libglu1-mesa-dev
 ```
 
 Qt 不是核心库的必需依赖；不安装 Qt 时保持 GUI 关闭即可。
