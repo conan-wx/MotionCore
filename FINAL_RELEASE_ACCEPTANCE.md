@@ -45,9 +45,11 @@
 
 ## Git/GitHub 发布状态
 
-本地已准备 `.gitignore`、`.gitattributes`、`CMakePresets.json`、`.github/workflows/ci.yml` 和发布说明；CI 配置只完成文件准备，尚未在 GitHub 远程运行。当前目录没有配置远程仓库，不能宣称已上传或已通过 Actions。许可证、仓库可见性和远程地址必须由仓库所有者确认后才能创建标签和推送；本次没有擅自添加 `LICENSE`。
+本地已加入 MIT `LICENSE`，创建了真实初始提交 `3c3a4d5` 和本地标签 `v1.0.0`。根据仓库所有者已确认的“MotionCore、公开、MIT”设置，已创建公开仓库：<https://github.com/conan-wx/MotionCore>。
 
-在所有者确认许可证、仓库名/可见性并完成一次人工 GUI 验收前，发布状态为“源码与本地验收完成，GitHub v1.0.0 发布待授权/人工验收”。
+首次推送被 GitHub 拒绝，原因是当前 CLI OAuth 凭据缺少 `workflow` scope，GitHub 不允许该凭据上传 `.github/workflows/ci.yml`；因此远程仓库当前仍为空，不能宣称源码、标签或 Actions 已上传。需要在 <https://github.com/login/device> 完成 GitHub CLI 提示的一次性设备授权后，再执行 `git push origin main --tags` 和 `gh release create v1.0.0 MotionCore_v1.0.0_Source.zip ...`。本地完整仓库、提交、标签、CI 文件和发布包均已保留。
+
+发布状态：源码与本地验收完成；公开仓库已创建但尚未成功推送；GitHub Actions、Release 和人工 GUI 操作仍待设备授权/用户显示环境验收。
 
 
 

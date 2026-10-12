@@ -19,7 +19,7 @@ MotionCore 提供 C++17 工业运动控制数字孪生核心、XYZ 直线/XY 圆
 - 1 ms 是仿真时间步长，不提供 Windows/WSL 硬实时保证。
 - Qt 当前展示明确标注的二维 XY 轨迹投影，不是完整三维渲染器。
 - 人工图形环境验收和演示视频尚未由本机记录，需要用户在有显示环境时操作。
-- 许可证、GitHub 仓库可见性、远程地址和 v1.0.0 标签由仓库所有者确认后再发布。
+- 本地已采用 MIT License，提交 `3c3a4d5` 并创建标签 `v1.0.0`。公开仓库已创建为 <https://github.com/conan-wx/MotionCore>；首次推送因当前 OAuth 凭据缺少 `workflow` scope 被 GitHub 拒绝，远程内容和 Actions 尚未发布。
 
 ## 复现
 
