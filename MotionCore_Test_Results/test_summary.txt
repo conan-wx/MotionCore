@@ -1,0 +1,16 @@
+Debug core: 19/19 passed
+Debug GUI offscreen: 22/22 passed
+Release core: 19/19 passed
+ASan+UBSan core: 19/19 passed
+CSV checks:
+validated 5640 Phase 4 CSV rows
+validated 2115 Phase 4 CSV rows
+validated 11573 rows
+reference maxima final_multi: acceleration=100.0 mm/s2, jerk=500.0 mm/s3
+
+
+Debug ctest wall time: 0.70 s
+Release ctest wall time: 0.74 s
+Qt offscreen ctest wall time: 4.30 s
+ASan+UBSan ctest wall time: 1.40 s
+GUI regression: rows=81 final_state=Ready, offline replay and command rejection verified

@@ -1,0 +1,9 @@
+time_s,event,state,command_id,fault_code,message
+0,enable,NotHomed,0,None,""
+0,homing_start,Homing,0,None,""
+8.57,homing_complete,Ready,0,None,""
+8.57,command_queued,Ready,1,None,""
+8.571,command_started,Running,1,None,""
+9.07,stop_requested,Running,2,None,""
+9.071,controlled_stop,ControlledStopping,0,None,""
+9.326,controlled_stop_complete,Ready,0,None,""

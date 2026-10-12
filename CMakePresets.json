@@ -1,0 +1,83 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "core-debug",
+      "displayName": "Core Debug (no Qt)",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build-presets/core-debug-make",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "MOTIONCORE_BUILD_GUI": "OFF"
+      }
+    },
+    {
+      "name": "core-release",
+      "displayName": "Core Release (no Qt)",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build-presets/core-release-make",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "MOTIONCORE_BUILD_GUI": "OFF"
+      }
+    },
+    {
+      "name": "gui-debug",
+      "displayName": "Qt GUI Debug",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build-presets/gui-debug-make",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "MOTIONCORE_BUILD_GUI": "ON"
+      }
+    },
+    {
+      "name": "asan-debug",
+      "displayName": "Address/Undefined Sanitizers",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build-presets/asan-debug-make",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "MOTIONCORE_BUILD_GUI": "OFF",
+        "CMAKE_CXX_FLAGS": "-fsanitize=address,undefined -fno-omit-frame-pointer",
+        "CMAKE_EXE_LINKER_FLAGS": "-fsanitize=address,undefined",
+        "CMAKE_SHARED_LINKER_FLAGS": "-fsanitize=address,undefined"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "core-debug", "configurePreset": "core-debug", "jobs": 2 },
+    { "name": "core-release", "configurePreset": "core-release", "jobs": 2 },
+    { "name": "gui-debug", "configurePreset": "gui-debug", "jobs": 2 },
+    { "name": "asan-debug", "configurePreset": "asan-debug", "jobs": 2 }
+  ],
+  "testPresets": [
+    {
+      "name": "core-debug",
+      "configurePreset": "core-debug",
+      "output": { "outputOnFailure": true }
+    },
+    {
+      "name": "core-release",
+      "configurePreset": "core-release",
+      "output": { "outputOnFailure": true }
+    },
+    {
+      "name": "gui-debug",
+      "configurePreset": "gui-debug",
+      "environment": { "QT_QPA_PLATFORM": "offscreen" },
+      "output": { "outputOnFailure": true }
+    },
+    {
+      "name": "asan-debug",
+      "configurePreset": "asan-debug",
+      "output": { "outputOnFailure": true }
+    }
+  ]
+}
+

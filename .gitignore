@@ -1,0 +1,18 @@
+build/
+build_*/
+build-presets/
+cmake-build-*/
+*.tmp
+*.log
+*.csv
+!results/**/*.csv
+!results/**/*.svg
+.cache/
+*.vsix
+Ubuntu/
+__pycache__/
+# Release archives and local binaries are kept outside the source repository.
+*.zip
+*.exe
+*.dll
+*.so

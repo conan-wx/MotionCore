@@ -1,0 +1,15 @@
+--- homing ---
+scenario=homing completed=1 state=Ready position_mm=0.0102972,0.0232082,0.0102966
+--- nominal ---
+line_command_id=1 accepted=1
+scenario=nominal state=Ready final_position_mm=29.9983,39.9978,49.9972 final_velocity_mm_s=0.0143717 following_error_mm=0.00392164 fault=None
+--- queue ---
+scenario=queue state=Ready final_position_mm=10.0258,10.0516,1.04727e-14 final_velocity_mm_s=0.0821565 following_error_mm=0.0577142 fault=None
+--- soft-limit ---
+out_of_limit_accepted=0 reason=trajectory exceeds software position limit
+--- controlled-stop ---
+scenario=controlled-stop state=Ready final_position_mm=10.7931,0.000229237,9.59974e-05 final_velocity_mm_s=8.60426e-13 following_error_mm=1.07553e-13 fault=None
+--- emergency-stop ---
+scenario=emergency-stop state=EmergencyStopped final_position_mm=7.93271,-0.00456761,-0.00204224 final_velocity_mm_s=3.28459e-38 following_error_mm=5.76604 fault=EmergencyStopTriggered
+--- fault-recovery ---
+scenario=fault-recovery state=Ready final_position_mm=0.0101422,0.0228288,0.0101292 final_velocity_mm_s=1.0291e-15 following_error_mm=1.29338e-16 fault=None

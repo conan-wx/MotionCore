@@ -1,0 +1,3 @@
+scenario,max_overshoot_mm,final_position_error_mm,final_velocity_mm_s,settling_time_s,max_actual_velocity_mm_s,max_actual_acceleration_mm_s2
+comparison_p,0,6.25,2.45978821025e-12,-1,43.4782608696,984
+comparison_pi,0,4.77395900589e-12,1.78855833401e-11,1.342,99.4653624467,983.936

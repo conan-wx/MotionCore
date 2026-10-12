@@ -1,0 +1,18 @@
+# Keep source and documentation text stable across Windows, WSL and Linux.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+*.vsix binary
+*.svg text
+*.csv text working-tree-encoding=UTF-8
+
+# Treat build and generated data as non-source when GitHub renders the repository.
+build*/ export-ignore
+cmake-build*/ export-ignore
+*.zip export-ignore

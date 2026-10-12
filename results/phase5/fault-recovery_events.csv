@@ -1,0 +1,10 @@
+time_s,event,state,command_id,fault_code,message
+0,enable,NotHomed,0,None,""
+0,homing_start,Homing,0,None,""
+8.57,homing_complete,Ready,0,None,""
+8.57,command_queued,Ready,1,None,""
+8.571,command_started,Running,1,None,""
+8.87,fault,Fault,0,FollowingError,"deterministic demo fault"
+10.075,fault_reset,NotHomed,0,None,""
+10.075,homing_start,Homing,0,None,""
+15.386,homing_complete,Ready,0,None,""

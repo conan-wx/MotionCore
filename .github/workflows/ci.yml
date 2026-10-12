@@ -1,0 +1,92 @@
+name: MotionCore CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    name: Ubuntu core (${{ matrix.build_type }})
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [Debug, Release]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build g++ python3
+      - name: Configure
+        run: cmake -S . -B build-ci-core -G Ninja -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DMOTIONCORE_BUILD_GUI=OFF
+      - name: Build
+        run: cmake --build build-ci-core --parallel 2
+      - name: Test
+        run: ctest --test-dir build-ci-core --output-on-failure --parallel 2
+      - name: Upload CTest log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctest-core-${{ matrix.build_type }}
+          path: build-ci-core/Testing/Temporary
+          if-no-files-found: ignore
+
+  gui:
+    name: Ubuntu Qt GUI (offscreen)
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Qt and build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build g++ python3 qt6-base-dev
+      - name: Configure GUI
+        run: cmake -S . -B build-ci-gui -G Ninja -DCMAKE_BUILD_TYPE=Debug -DMOTIONCORE_BUILD_GUI=ON
+      - name: Build GUI
+        run: cmake --build build-ci-gui --parallel 2
+      - name: Test GUI and core
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: ctest --test-dir build-ci-gui --output-on-failure --parallel 2
+      - name: Upload GUI CTest log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctest-gui
+          path: build-ci-gui/Testing/Temporary
+          if-no-files-found: ignore
+
+  sanitizer:
+    name: Ubuntu ASan/UBSan
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build g++ python3
+      - name: Configure sanitizers
+        run: >-
+          cmake -S . -B build-ci-asan -G Ninja -DCMAKE_BUILD_TYPE=Debug
+          -DMOTIONCORE_BUILD_GUI=OFF
+          -DCMAKE_CXX_FLAGS='-fsanitize=address,undefined -fno-omit-frame-pointer'
+          -DCMAKE_EXE_LINKER_FLAGS='-fsanitize=address,undefined'
+      - name: Build sanitizers
+        run: cmake --build build-ci-asan --parallel 2
+      - name: Test sanitizers
+        run: ctest --test-dir build-ci-asan --output-on-failure --parallel 2
+      - name: Upload sanitizer CTest log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctest-asan
+          path: build-ci-asan/Testing/Temporary
+          if-no-files-found: ignore
